@@ -60,6 +60,16 @@ html {
     cursor: pointer;
   }
   
+  .mainLogo {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .mainLogo span {
+    font-weight: 200;
+  }
+
   .logo {
     text-decoration: none;
   }

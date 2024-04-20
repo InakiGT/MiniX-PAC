@@ -12,7 +12,7 @@ class MainController {
         this.router.get('/', this.get);
     }
 
-    private get(_: Request, res: Response) {
+    private get(_: Request, res: Response): void {
         res.json({
             msg: 'Bienvenido a Mini-X',
         });

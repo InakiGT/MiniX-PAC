@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="../../public/styles/index.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navigator" >
+            <div>
+                <a class="logo" href="/">
+                    <h1>Mini<span>-X</span></h1>
+                </a>
+                <input type="text" placeholder="Buscar" />
+            </div>
+      
+            <div>
+              <div class="messageIcon">
+                <div>
+                  <a href="/chats"><img src='https://cdn.icon-icons.com/icons2/1673/PNG/512/messagesquareoutline_110780.png' /></a>
+                </div>
+                <span><p>1</p></span>
+              </div>
+              <a href="#"><img src='https://cdn1.iconfinder.com/data/icons/halloween-2330/512/50-Halloween_Icons_49-1024.png' /></a>
+            </div>
+        </nav>  
+    </header>
+    <div class="mainContent">
+        <div>
+          <nav class="leftNavigator">
+            <ul>
+              <div>
+                <li>Home</li>
+                <li>Notificaciones</li>
+                <li>Explorar</li>
+                <li>Mensajes</li>
+                <li>Perfil</li>
+              </div>
+            </ul>
+  
+            <button class="blackButton">CREA UN POST</button>
+          </nav>
+        </div>
+  
+        <div class="mainContainer">
+          <div>
+            <ul class="mainNavigator" >
+                <li>
+                    <p>Para ti</p>
+                </li>
+                <li>
+                    <p>Siguiendo</p>
+                </li>
+            </ul>
+          </div>
+          <div class="scrollable" >
+              <div class="createPost" >
+                  <div class="inputGrid" >
+                    <div>
+                      <img src="https://cdn1.iconfinder.com/data/icons/halloween-2330/512/50-Halloween_Icons_49-1024.png"></img>
+                    </div>
+                    <textarea 
+                      placeholder="¿Qué hay de nuevo?"
+                    ></textarea>
+                  </div>
+                  <div class="buttonGrid">
+                    <label for="img">
+                      <img src="https://cdn-icons-png.flaticon.com/128/2907/2907776.png" />
+                    </label>
+                    <input
+                      id="img"
+                      type="file" 
+                      style="display: none"
+                    />
+                    <div>
+                      <button class="blackButton">Post</button>
+                    </div>
+                  </div>
+              </div>
+            <div>
+  
+
+            <!-- <Post 
+                post={ post }
+            /> -->
+ 
+  
+              </div>
+            </div>
+        </div>
+  
+        <div class="trendContainer">
+          <h3>En tendencia</h3>
+          <div>
+              <!-- <For each={ trends } fallback='No hay Trends'>
+                {(trend) => (
+                  <Trend 
+                    trend={ trend }
+                  />
+                )}
+              </For> -->
+          </div>
+        </div>
+    </div>
+</body>
+</html>
