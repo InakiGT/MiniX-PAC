@@ -3,7 +3,7 @@ import express, { Express } from 'express';
 const port = process.env.PORT || 3000;
 
 const createApp = () => {
-    const app = express();
+    const app: Express = express();
 
     app.use(express.json());
 

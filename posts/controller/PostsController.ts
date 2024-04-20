@@ -16,6 +16,10 @@ class PostsController {
 
         });
     }
+
+    public getRouter(): Router {
+        return this.router;
+    }
 }
 
 export default PostsController;

@@ -1,6 +1,6 @@
 import Post from "./Post";
 
-class ImagePost implements Post {
+class VideoPost implements Post {
     constructor(
         public author: String,
         public content: String,
@@ -32,4 +32,4 @@ class ImagePost implements Post {
     }
 }
 
-export default ImagePost;
+export default VideoPost;
