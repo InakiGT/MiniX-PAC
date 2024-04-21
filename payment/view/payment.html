@@ -4,8 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="../../public/styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <div>
+        <div class="bgRed halfWidth textWhite">
+            <div class="paymentDesc">
+                <a>
+                    <img class="backArrow" src="https://www.svgrepo.com/show/390866/back.svg" />
+                </a>
+                <div>
+                    <p class="leyend">Suscríbete a Mini-X Premium</p>
+                    <p class="mainPrice">MXN 100.00 <span>por año</span></p>
+                </div>
+
+                <div>
+                    <div class="priceDesc">
+                        <p>Mini-X Premium</p>
+                        <p>MXN 100.00</p>
+                    </div>
+                    <hr />
+                    <div class="priceDesc">
+                        <p>Total adeudado hoy</p>
+                        <p>MXN 100.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bgWhite halfWidth">
+            <form class="paymentForm">
+                <p>Pago con tarjeta</p>
+
+                <div>
+                    <label>Correo electrónico</label>
+                    <input type="text" />
+                </div>
+
+                <div>
+                    <label for="">Información de tarjeta</label>
+                    <div>
+                        <input class="cardInputMid" type="text" placeholder="1234 1234 1234 1234" />
+                        <input class="cardInputLeft" type="text" placeholder="MM/AA" />
+                        <input class="cardInputRight" type="text" placeholder="CVC" />
+                    </div>
+                </div>
+
+                <div>
+                    <label for="">Nombre del titular</label>
+                    <input type="text" placeholder="Nombre titular" />
+                </div>
+
+                <div>
+                    <label>País o región</label>
+                    <select>
+                        <option>México</option>
+                    </select>
+                </div>
+
+                <div class="btnContainer">
+                    <button type="submit" class="blackButton">Suscribirse</button>
+                </div>
+
+                <p class="caption">Si confirmas tu suscripción, permitirás que Mini-X efectúe cargos de futuros pagos conforme a las condiciones estipuladas. Siempre puedes cancelar tu suscripción.</p>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
