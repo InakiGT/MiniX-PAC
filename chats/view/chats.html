@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="../../public/styles/index.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navigator" >
+            <div>
+                <a class="logo" href="/">
+                    <h1>Mini<span>-X</span></h1>
+                </a>
+                <input type="text" placeholder="Buscar" />
+            </div>
+      
+            <div>
+              <div class="messageIcon">
+                <div>
+                  <a href="/chats"><img src='https://cdn.icon-icons.com/icons2/1673/PNG/512/messagesquareoutline_110780.png' /></a>
+                </div>
+                <span><p>1</p></span>
+              </div>
+              <a href="#"><img src='https://cdn1.iconfinder.com/data/icons/halloween-2330/512/50-Halloween_Icons_49-1024.png' /></a>
+            </div>
+        </nav>  
+    </header>
+
+    <div class="chatsMainContent">
+        <div>
+          <nav class="leftNavigator">
+            <ul>
+              <div>
+                <li>Home</li>
+                <li>Notificaciones</li>
+                <li>Explorar</li>
+                <li>Mensajes</li>
+                <li>Perfil</li>
+              </div>
+            </ul>
+  
+            <button class="blackButton">CREA UN POST</button>
+          </nav>
+        </div>
+  
+        <div class="chatsContainer">
+          <div class="messagesTitle">
+            <h2>Mensajes</h2>
+            <input
+              type='text' 
+              placeholder='Buscar mensajes directos' 
+            />
+          </div>
+  
+  
+          <div>
+            <!-- <For each="s" fallback='No hay mensajes'>
+              {(chat, index) => (
+                <ChatCard
+                  chat="t"
+                  setSelected="d"
+                />
+              )}
+            </For> -->
+          </div>
+        </div>
+
+        <div class="chatContainer">
+          <!-- {
+            selected() ? (
+              <SelectChat />
+            ) : (
+              <Chat />
+            )
+          } -->
+        </div>
+    </div>
+
+</body>
+</html>

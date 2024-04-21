@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="../../public/styles/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="bgRed">
+        <form 
+          class="simpleForm"
+        >
+          <h2>Mini<span>-X</span></h2>
+          <!-- <p class="errorMsg">EERRO</p> -->
+          <div class="formInput">
+            <label>Nombre de usuario o correo:</label>
+            <input 
+              type='email' 
+              placeholder='correo@example.com'
+            />
+          </div>
+          <div class="formInput">
+            <label>Contraseña:</label>
+            <input 
+              type='password' 
+              placeholder='Password'
+            />
+          </div>
+  
+          <A href='/signin'>¿No tienes una cuenta? Crea una nueva</A>
+          <br />
+          <button 
+            class="blackButton"
+            type='submit'
+          >
+            INICIAR SESIÓN
+          </button>
+        </form>
+      </div>
+</body>
+</html>

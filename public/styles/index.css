@@ -447,6 +447,10 @@ a {
   font-size: 30px;
 }
 
+.leftNavigator a {
+  color: #000000;
+}
+
 .leftNavigator li:last-of-type {
   margin-bottom: 50px;
 }
