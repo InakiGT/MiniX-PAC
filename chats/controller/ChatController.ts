@@ -1,10 +1,11 @@
 import { Router, Request, Response } from 'express';
 
-class PaymentController {
+class ChatController {
     private router: Router;
 
     constructor() {
         this.router = Router();
+        this.initializeRouter();
     }
 
     private initializeRouter(): void {
@@ -16,4 +17,4 @@ class PaymentController {
     }
 }
 
-export default PaymentController;
+export default ChatController;
