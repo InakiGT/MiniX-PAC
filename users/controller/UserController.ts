@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 
-class PostsController {
+class UserController {
     private router: Router;
 
     constructor() {
@@ -9,13 +9,7 @@ class PostsController {
     }
 
     private initializeRouter(): void {
-        this.router.get('/', this.getOne);
-    }
 
-    private getOne(_: Request, res: Response) {
-        res.json({
-
-        });
     }
 
     public getRouter(): Router {
@@ -23,4 +17,4 @@ class PostsController {
     }
 }
 
-export default PostsController;
+export default UserController;
