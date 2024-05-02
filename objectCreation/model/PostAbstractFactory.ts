@@ -1,4 +1,4 @@
-import Post from "../posts/model/Post";
+import Post from "../../posts/model/Post";
 
 interface PostAbstractFactory {
     createPost(

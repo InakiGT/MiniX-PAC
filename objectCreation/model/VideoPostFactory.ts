@@ -1,4 +1,4 @@
-import VideoPost from "../posts/model/VideoPost";
+import VideoPost from "../../posts/model/VideoPost";
 import PostAbstractFactory from "./PostAbstractFactory";
 
 class VideoPostFactory implements PostAbstractFactory {

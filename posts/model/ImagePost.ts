@@ -1,6 +1,8 @@
 import Post from "./Post";
 
 class ImagePost implements Post {
+    public id: String = '';
+
     constructor(
         public author: String,
         public content: String,
@@ -19,6 +21,10 @@ class ImagePost implements Post {
         this.img = img;
     }
 
+    setId(id: String): void {
+        this.id = id;
+    }
+
     getAuthor(): String {
         return this.author;
     }
@@ -29,6 +35,10 @@ class ImagePost implements Post {
 
     getImage(): String {
         return this.img;
+    }
+
+    getId(): String {
+        return this.id;
     }
 }
 

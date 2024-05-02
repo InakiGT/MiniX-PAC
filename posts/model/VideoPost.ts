@@ -1,6 +1,8 @@
 import Post from "./Post";
 
 class VideoPost implements Post {
+    public id: String = '';
+
     constructor(
         public author: String,
         public content: String,
@@ -19,6 +21,10 @@ class VideoPost implements Post {
         this.video = video;
     }
 
+    setId(id: String): void {
+        this.id = id;
+    }
+
     getAuthor(): String {
         return this.author;
     }
@@ -29,6 +35,10 @@ class VideoPost implements Post {
 
     getVideo(): String {
         return this.video;
+    }
+
+    getId(): String {
+        return this.id;
     }
 }
 

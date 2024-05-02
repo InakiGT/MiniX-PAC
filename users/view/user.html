@@ -33,7 +33,7 @@
     </header>
     <div class="bgRed">
         <form class="simpleForm">
-          <img src="https://static-00.iconduck.com/assets.00/profile-default-icon-512x511-v4sw4m29.png" />
+          <img id="user-avatar" src="https://static-00.iconduck.com/assets.00/profile-default-icon-512x511-v4sw4m29.png" />
           <p class="title">Username</p>
           <!-- <p class="errorMsg">Error</p> -->
   
@@ -69,17 +69,20 @@
           <div>
             <p>Elige un avatar (No te preocupes, puedes cambiarlo después):</p>
             <div class="avatars">
-              <img 
-                class="selectableAvatar"
-                src="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043251-avatar-female-girl-woman_113291.png"
-              />
-              <img 
-                class="selectableAvatar"
-                src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png"
-              />
-              <img 
-                class="selectableAvatar"
-                src="https://cdn1.iconfinder.com/data/icons/halloween-2330/512/50-Halloween_Icons_49-1024.png"
+                <img 
+                  class="selectableAvatar"
+                  src="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043251-avatar-female-girl-woman_113291.png"
+                  id="first"
+                />
+                <img 
+                  class="selectableAvatar"
+                  src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png"
+                  id="second"
+                />
+                <img 
+                  class="selectableAvatar"
+                  src="https://cdn1.iconfinder.com/data/icons/halloween-2330/512/50-Halloween_Icons_49-1024.png"
+                  id="third"
               />
             </div>
           </div>
@@ -91,5 +94,6 @@
           </button>
         </form>
       </div>
+      <script src="./user.js"></script>
 </body>
 </html>
