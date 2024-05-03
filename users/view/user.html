@@ -14,7 +14,7 @@
     <header>
         <nav class="navigator" >
             <div>
-                <a class="logo" href="/">
+                <a class="logo" href="/posts/view/posts.html">
                     <h1>Mini<span>-X</span></h1>
                 </a>
                 <input type="text" placeholder="Buscar" />
@@ -32,14 +32,15 @@
         </nav>  
     </header>
     <div class="bgRed">
-        <form class="simpleForm">
+        <form class="simpleForm" id="form">
           <img id="user-avatar" src="https://static-00.iconduck.com/assets.00/profile-default-icon-512x511-v4sw4m29.png" />
-          <p class="title">Username</p>
+          <p class="title" id="usernameC">Username</p>
           <!-- <p class="errorMsg">Error</p> -->
-  
+          <div id="error" class="displayNone"></div>
           <div class="formInput">
             <label>Cambiar nombre de usuario:</label>
             <input 
+              id="username"
               type='text' 
               placeholder='MyUser94'
             />
@@ -47,6 +48,7 @@
           <div class="formInput">
             <label>Cambiar Correo:</label>
             <input 
+              id="email"
               type='email' 
               placeholder='correo@example.com'
             />
@@ -54,13 +56,15 @@
           <div class="formInput">
             <label>Nueva Contraseña:</label>
             <input 
+              id="password"
               type='password' 
               placeholder='Password'
-            />
-          </div>
-          <div class="formInput">
-            <label>Confirmar Nueva Contraseña:</label>
-            <input 
+              />
+            </div>
+            <div class="formInput">
+              <label>Confirmar Nueva Contraseña:</label>
+              <input 
+              id="confirm-password"
               type='password' 
               placeholder='Password'
             />

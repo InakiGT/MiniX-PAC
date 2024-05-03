@@ -9,7 +9,6 @@ const userNameElement = document.getElementById('usernameC');
 
 // Form
 const form = document.getElementById('form');
-const error = document.getElementById('error');
 const usernameInput = document.getElementById('username');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
@@ -61,5 +60,5 @@ const sendForm = (e) => {
 avatar1.addEventListener('click', (e) => setAvatar(e));
 avatar2.addEventListener('click', (e) => setAvatar(e));
 avatar3.addEventListener('click', (e) => setAvatar(e));
-usernameInput.addEventListener('change', (e) => setUsername());
+usernameInput.addEventListener('change', () => setUsername());
 form.addEventListener('submit', (e) => sendForm(e));

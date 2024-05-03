@@ -824,3 +824,15 @@ a {
   display: flex;
   justify-content: space-between;
 }
+
+.errorCard {
+  background-color: var(--error);
+  padding: .8rem 2rem;
+  margin-bottom: 1rem;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.displayNone {
+  display: none;
+}
