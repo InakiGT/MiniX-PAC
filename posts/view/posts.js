@@ -33,7 +33,7 @@ const getPosts = () => {
         });
 
 
-        const img = post.img ? `<img src="img" />` : '';
+        const img = post.img ? `<img src="${post.img}" alt="${post.authorId.username}" />` : '';
 
         postsContainer.innerHTML += `
         <div class="tweet">
