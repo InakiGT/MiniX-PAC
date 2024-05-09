@@ -7,6 +7,7 @@ import NotificationController from "./notifications/controller/NotificationContr
 import RegisterController from "./register/controller/RegisterController";
 import PaymentController from "./payment/controller/PaymentController";
 import connectMongo from "./database/connection";
+require('./passport');
 
 connectMongo();
 const app = createApp();
