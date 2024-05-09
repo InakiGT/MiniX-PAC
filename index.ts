@@ -6,7 +6,9 @@ import PostsController from "./posts/controller/PostsController";
 import NotificationController from "./notifications/controller/NotificationController";
 import RegisterController from "./register/controller/RegisterController";
 import PaymentController from "./payment/controller/PaymentController";
+import connectMongo from "./database/connection";
 
+connectMongo();
 const app = createApp();
 
 const mainController = new MainController();
