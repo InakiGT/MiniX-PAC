@@ -1,19 +1,19 @@
 import { Strategy } from 'passport-local';
-// import AuthService from '../../services/auth.service';
+import AuthManager from '../../auth/model/AuthManager';
 
-// const authService = new AuthService();
+const manager = new AuthManager();
 
 const LocalStrategy = new Strategy({
-//     usernameField: 'email',
-//     passwordField: 'password',
-// }, async ( email, password, done ) => {
-//     try {
-//         const user = await authService.GetUser(email, password);
+    usernameField: 'email',
+    passwordField: 'password',
+}, async ( email, password, done ) => {
+    try {
+        const user = await manager.getUser(email, password);
 
-//         done(null, user);
-//     } catch(err) {
-//         done(err, false);
-//     }
+        done(null, user);
+    } catch(err) {
+        done(err, false);
+    }
 });
 
 export default LocalStrategy;

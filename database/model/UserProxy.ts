@@ -16,6 +16,10 @@ class UserProxy implements IUser {
         return users;
     }
 
+    async getUserByEmail(email: string) {
+        return await this.user.getUserByEmail(email);
+    }
+
     async getUser(id: string) {
         const user = await this.user.getUser(id);
 

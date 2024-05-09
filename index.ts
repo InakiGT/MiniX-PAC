@@ -7,12 +7,14 @@ import NotificationController from "./notifications/controller/NotificationContr
 import RegisterController from "./register/controller/RegisterController";
 import PaymentController from "./payment/controller/PaymentController";
 import connectMongo from "./database/connection";
+import AuthController from "./auth/controller/AuthController";
 require('./passport');
 
 connectMongo();
 const app = createApp();
 
 const mainController = new MainController();
+const authController = new AuthController();
 const userController = new UserController();
 const chatController = new ChatController();
 const postController = new PostsController();
@@ -21,6 +23,7 @@ const registerController = new RegisterController();
 const notificationController = new NotificationController();
 
 const mainRouter = mainController.getRouter();
+const authRouter = authController.getRouter();
 const userRouter = userController.getRouter();
 const postRouter = postController.getRouter();
 const chatRouter = chatController.getRouter();
@@ -30,6 +33,7 @@ const notificationRouter = notificationController.getRouter();
 
 app.use('/', mainRouter);
 app.use('/users', userRouter);
+app.use('/login', authRouter);
 app.use('/posts', postRouter)
 app.use('/chats', chatRouter);
 app.use('/payment', paymentRouter);

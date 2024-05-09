@@ -24,6 +24,16 @@ class User implements IUser {
         }
     }
 
+    async getUserByEmail(email: string) {
+        try {
+            const user = await UserDB.findOne({ email });
+
+            return user;
+        } catch(err) {
+            throw new Error(`Error attemping to find user by email in DB: ${err}`);
+        }
+    }
+
     async createUser(data: any) {
         try {
             const user = new UserDB(data);
