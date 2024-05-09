@@ -1,36 +1,17 @@
-import Post from "./Post";
+import mongoose, { Model, Schema } from 'mongoose';
+import { IPost } from "./Post";
 
-class SimplePost implements Post {
-    public id: String = ''
-
-    constructor(
-        public author: String,
-        public content: String,
-    ) {}
-
-    setAuthor(author: String): void {
-        this.author = author;
-    }
-
-    setContent(content: String): void {
-        this.content = content;
-    }
-
-    setId(id: String): void {
-        this.id = id;
-    }
-
-    getAuthor(): String {
-        return this.author;
-    }
-
-    getContent(): String {
-        return this.content;
-    }
-
-    getId(): String {
-        return this.id;
-    }
+interface SimplePost extends IPost {
+    content: string;
 }
+
+const SimplePostSchemaFields = {
+    content: { type: String, requeried: true },
+}
+
+const SimplePostSchema = new Schema(SimplePostSchemaFields);
+
+const SimplePost = (mongoose.models.Post as Model<IPost>).discriminator<SimplePost>('SimplePost', SimplePostSchema);
+
 
 export default SimplePost;

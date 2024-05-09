@@ -1,15 +1,15 @@
+import mongoose, { Schema } from 'mongoose';
 
-interface Post {
-    id: String;
-    author: String;
-    content: String;
-
-    setAuthor(author: String): void;
-    setContent(content: String): void;
-    setId(id: String): void;
-    getAuthor(): String;
-    getContent(): String;
-    getId(): String;
+export interface IPost extends Document {
+    authorId: String;
+    hashtags?: [];
 }
+
+const postSchema = new Schema({
+    authorId: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
+    hashtags: { type: [ String ], required: false },
+});
+
+const Post = mongoose.model<IPost>('Post', postSchema);
 
 export default Post;

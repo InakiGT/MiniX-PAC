@@ -1,12 +1,12 @@
 import bcrypt from 'bcrypt';
 
 import IUser from "./IUser";
-import UserDB from '../schemas/User';
+import UserDB from '../../users/model/User';
 
 class User implements IUser {
     async getUsers() {
         try {
-            const users = UserDB.find();
+            const users = await UserDB.find();
 
             return users;
         } catch(err) {
@@ -73,7 +73,7 @@ class User implements IUser {
 
             return true;
         } catch(err) {
-            throw new Error(`Error attemping to update a User in DB: ${err}`);
+            throw new Error(`Error attemping to update an User in DB: ${err}`);
         }
     }
 }

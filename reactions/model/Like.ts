@@ -11,3 +11,7 @@ export const likeSchema = new Schema({
     content: { type: String, required: true },
     img: { type: String, required: false },
 });
+
+const Like = mongoose.model<ILike>('Like', likeSchema);
+
+export default Like;

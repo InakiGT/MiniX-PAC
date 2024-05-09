@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 interface IComment extends Document {
     authorId: String;
@@ -11,3 +11,7 @@ export const commentSchema = new Schema({
     content: { type: String, required: true },
     img: { type: String, required: false },
 });
+
+const Comment = mongoose.model<IComment>('Comment', commentSchema);
+
+export default Comment;
