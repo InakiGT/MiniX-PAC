@@ -15,7 +15,6 @@ class UserController {
     private initializeRouter() {
         this.router.get('/', this.getUsers.bind(this));
         this.router.get('/:id', this.getUser.bind(this));
-        this.router.post('/', this.createUser.bind(this));
         this.router.delete('/:id', passport.authenticate('jwt', { session: false }), this.deleteUser.bind(this));
         this.router.put('/:id', passport.authenticate('jwt', { session: false }), this.updateUser.bind(this));
     }
@@ -37,22 +36,6 @@ class UserController {
             res.status(200).json({
                 msg: 'OK',
                 data: user,
-            });
-        } catch(err) {
-            res.status(500).json({
-                msg: 'Internal Server Error',
-            });
-        }
-    }
-
-    private async createUser(req: Request, res: Response) {
-        try {
-            const data = req.body;
-            const response = await this.manager.createUser(data);
-
-            res.status(201).json({
-                msg: 'User created',
-                data: response,
             });
         } catch(err) {
             res.status(500).json({

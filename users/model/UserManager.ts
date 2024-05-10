@@ -12,10 +12,6 @@ class UserManager {
         return await this.proxy.getUsers();
     }
 
-    async createUser(data: any) {
-        return await this.proxy.createUser(data);
-    }
-
     async getUser(id: string) {
         return await this.proxy.getUser(id);
     }

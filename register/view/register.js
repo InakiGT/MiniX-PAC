@@ -15,6 +15,8 @@ const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirm-password');
 const errorCard = document.getElementById('error');
 
+const api = new Api('http://localhost:3000/register');
+
 const setAvatar = (e) => {
     avatar.src = e.target.src;
 }
@@ -25,7 +27,7 @@ const setUsername = () => {
     userNameElement.textContent = 'Username';
 }
 
-const sendForm = (e) => {
+const sendForm = async (e) => {
     e.preventDefault();
 
     const username = usernameInput.value;
@@ -55,7 +57,29 @@ const sendForm = (e) => {
     errorCard.className = 'displayNone';
 
     // Send data to API
+    const response = await createUser(username, email, password, avatar.src);
+
+    if (response.status === 201) {
+        window.location = 'http://127.0.0.1:5500/auth/view/login.html';
+        return;
+    }
+
+    errorCard.innerHTML = '';
+    errorCard.className = 'errorCard';
+    pNode.innerHTML = 'Error en el servidor, favor de intentarlo más tarde';
+    errorCard.appendChild(pNode);
 } 
+
+const createUser = async (username, email, password, photo) => {
+    const response = await api.Post({
+        username,
+        email,
+        password,
+        photo,
+    });
+
+    return response;
+}
 
 avatar1.addEventListener('click', (e) => setAvatar(e));
 avatar2.addEventListener('click', (e) => setAvatar(e));
