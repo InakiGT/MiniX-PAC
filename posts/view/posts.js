@@ -1,25 +1,11 @@
-const posts = [
-    {
-        authorId: {
-            photo: 'https://cdn1.iconfinder.com/data/icons/halloween-2330/512/50-Halloween_Icons_49-1024.png',
-            username: 'Inakikiriki'
-        },
-        content: 'Hola amigos del #AMLOCO youtube',
-        img: ''
-    },
-    {
-        authorId: {
-            photo: 'https://cdn1.iconfinder.com/data/icons/halloween-2330/512/50-Halloween_Icons_49-1024.png',
-            username: 'Inakikiriki'
-        },
-        content: 'Hola amigos del #AMLOCO youtube',
-        img: ''
-    },
-];
+const api = new Api('http://localhost:3000/posts');
 
 const postsContainer = document.getElementById('posts');
 
-const getPosts = () => {
+const getPosts = async () => {
+    const response = await api.Get();
+    const { data: { data: posts } } = response;
+
     posts.forEach((post) => {
 
         const splitContent = post.content.split(/(#\w+)/g);
@@ -38,8 +24,8 @@ const getPosts = () => {
         postsContainer.innerHTML += `
         <div class="tweet">
             <div class="tweetAuthor">
-                <img src="${post.authorId.photo}" />
-                <p>${post.authorId.username}</p>
+                <img src="${post.detail[0].photo}" />
+                <p>${post.detail[0].username}</p>
                 </div>
                 <div class="tweetContent">
                 

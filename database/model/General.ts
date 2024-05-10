@@ -3,6 +3,7 @@ import { Types } from './GeneralTypes';
 import CommentsDb from '../../comments/model/Comment';
 import ReactionsDb from '../../reactions/model/Like';
 import PostsDb from '../../posts/model/Post';
+import factoriesManager from "../../objectCreation/model/FactoriesManager";
 
 const DB: any = {
     comments: CommentsDb,
@@ -12,18 +13,35 @@ const DB: any = {
 
 class General implements IGeneral {
     private db;
+    private type;
 
     constructor(type: Types) {
         if (!DB[type]) {
             throw new Error(`Invalid DB type: ${type}`);
         }
 
+        this.type = type;
         this.db = DB[type];
     }
 
     async getItems(query: any) {
         try {
-            const items = await this.db.find({ query });
+            let items;
+
+            if (this.type === Types.POST) {
+                items = await this.db.aggregate([
+                    {
+                      $lookup: {
+                        from: 'users',
+                        localField: 'authorId',
+                        foreignField: '_id',
+                        as: 'detail',
+                      }
+                    },
+                  ]);
+            } else {
+                items = await this.db.find({ query });
+            }
 
             return items;
         } catch(err) {
@@ -43,7 +61,20 @@ class General implements IGeneral {
 
     async createItem(data: any) {
         try {
-            const item = new this.db(data);
+            let item;
+
+            if ( this.type === Types.POST ) {
+
+                if ( data.img ) {
+                    item = factoriesManager.createImagePost(data);
+                } else if (data.video) {
+                    item = factoriesManager.createVideoPost(data);
+                } else {
+                    item = factoriesManager.createSimplePost(data);
+                }
+            } else {
+                item = new this.db(data);
+            }
 
             await item.save();
 

@@ -14,7 +14,7 @@ class AuthManager {
 
     async getUser(email: string, password: string) {
         const user = await this.proxy.getUserByEmail(email);
-        console.log(user)
+        
         if (!user) {
             throw new Error('Unhauthorized');
         }

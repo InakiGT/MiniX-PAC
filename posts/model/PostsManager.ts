@@ -1,38 +1,21 @@
-import ImagePostFactory from "../../objectCreation/model/ImagePostFactory";
-import PostAbstractFactory from "../../objectCreation/model/PostAbstractFactory";
-import SimplePostFactory from "../../objectCreation/model/SimplePostFactory";
-import VideoPostFactory from "../../objectCreation/model/VideoPostFactory";
-import { CreatePost } from "./PostDtos";
+import GeneralProxy from "../../database/model/GeneralProxy";
+import { Types } from "../../database/model/GeneralTypes";
+import IGeneral from "../../database/model/IGeneral";
 
 class PostsManager {
-    constructor(
-        private postsFactory: PostAbstractFactory,
-    ) {}
-
-    public setFactory(factory: PostAbstractFactory) {
-        this.postsFactory = factory;
+    private proxy: IGeneral;
+    
+    constructor() {
+        this.proxy = new GeneralProxy(Types.POST);
     }
 
-    public findAll() {}
-
-    public findOne() {}
-
-    public create(data: CreatePost) {
-        // if ( data.img ) {
-        //     this.setFactory(new ImagePostFactory());
-        //     this.postsFactory.createPost()
-        // } else if ( data.video ) {
-        //     this.setFactory(new VideoPostFactory());
-        //     this.postsFactory.createPost()
-        // } else {
-        //     this.setFactory(new SimplePostFactory());
-        //     this.postsFactory.createPost()
-        // }
+    async getPosts(query: any) {
+        return await this.proxy.getItems(query);
     }
 
-    public update() {}
-
-    public delete() {}
+    async createPost(data: any) {
+        return await this.proxy.createItem(data);
+    }
 }
 
 export default PostsManager;

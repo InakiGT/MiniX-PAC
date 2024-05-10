@@ -67,6 +67,7 @@
                     </div>
                     <textarea 
                       placeholder="¿Qué hay de nuevo?"
+                      id="create-content"
                     ></textarea>
                   </div>
                   <div class="buttonGrid">
@@ -79,19 +80,12 @@
                       style="display: none"
                     />
                     <div>
-                      <button class="blackButton">Post</button>
+                      <button class="blackButton" id="create-button">Post</button>
                     </div>
                   </div>
               </div>
 
               <div id="posts">
-  
-
-            <!-- <Post 
-                post={ post }
-            /> -->
- 
-  
               </div>
 
             </div>
@@ -110,6 +104,9 @@
           </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../public/js/api.js" ></script>
     <script src="./posts.js"></script>
+    <script src="./createPost.js"></script>
 </body>
 </html>

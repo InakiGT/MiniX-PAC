@@ -6,7 +6,10 @@ const passwordInput = document.getElementById('password');
 // Error
 const errorCard = document.getElementById('error');
 
-const sendForm = (e) => {
+// API
+const api = new Api('http://localhost:3000/login');
+
+const sendForm = async (e) => {
     e.preventDefault();
 
     const email = emailInput.value;
@@ -23,7 +26,15 @@ const sendForm = (e) => {
 
     errorCard.className = 'displayNone';
 
-    // TODO: Auth
+    const token = await doLogin(email, password);
+    localStorage.setItem('token', token);
+    window.location = 'http://127.0.0.1:5500/posts/view/posts.html';
+}
+
+const doLogin = async (email, password) => {
+    const response = await api.Post({ email, password });
+
+    return response.data.token;
 }
 
 form.addEventListener('submit', (e) => sendForm(e));

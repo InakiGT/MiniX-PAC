@@ -1,21 +1,56 @@
 import { Router, Request, Response } from 'express';
+import passport from 'passport';
+
+import PostsManager from '../model/PostsManager';
 
 class PostsController {
     private router: Router;
+    private manager: PostsManager;
 
     constructor() {
         this.router = Router();
+        this.manager = new PostsManager();
         this.initializeRouter();
     }
 
     private initializeRouter(): void {
-        this.router.get('/', this.getOne);
+        this.router.get('/', this.getPosts.bind(this));
+        this.router.post('/', passport.authenticate('jwt', { session: false }), this.createPost.bind(this));
     }
 
-    private getOne(_: Request, res: Response) {
-        res.json({
+    private async getPosts(req: Request, res: Response) {
+        try {
+            const { query } = req.body;
+            const posts = await this.manager.getPosts(query);
 
-        });
+            res.status(200).json({
+                msg: 'OK',
+                data: posts,
+            });
+        } catch(err) {
+            res.status(500).json({
+                msg: 'Internal Server Error',
+            });
+        }
+    }
+
+    private async createPost(req: Request, res: Response) {
+        try {
+            const data = req.body;  
+            const { sub } = req.user as any;  
+            data.authorId = sub;
+
+            await this.manager.createPost(data);
+
+            res.status(201).json({
+                msg: 'Post created',
+                data,
+            });
+        } catch(err) {
+            res.status(500).json({
+                msg: 'Internal Server Error',
+            });
+        }
     }
 
     public getRouter(): Router {

@@ -1,3 +1,5 @@
+import cors from 'cors';
+
 import createApp from "./app";
 import MainController from "./main/controller/MainController";
 import UserController from "./users/controller/UserController";
@@ -31,6 +33,7 @@ const paymentRouter = paymentController.getRouter();
 const registerRouter = registerController.getRouter();
 const notificationRouter = notificationController.getRouter();
 
+app.use(cors());
 app.use('/', mainRouter);
 app.use('/users', userRouter);
 app.use('/login', authRouter);

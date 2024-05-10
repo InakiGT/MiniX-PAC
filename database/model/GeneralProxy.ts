@@ -11,8 +11,10 @@ class GeneralProxy implements IGeneral {
         this.item = new General(type);
     }
 
-    async getItems() {
+    async getItems(query: any) {
+        const items = await this.item.getItems(query);
 
+        return items;
     }
 
     async getItem(id: string) {
@@ -20,7 +22,9 @@ class GeneralProxy implements IGeneral {
     }
 
     async createItem(data: any) {
-        
+        const response = await this.item.createItem(data);
+
+        return response;
     }
 
     async deleteItem(id: string, sub: string) {
