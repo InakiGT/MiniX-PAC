@@ -4,6 +4,7 @@ import CommentsDb from '../../comments/model/Comment';
 import ReactionsDb from '../../reactions/model/Like';
 import PostsDb from '../../posts/model/Post';
 import factoriesManager from "../../objectCreation/model/FactoriesManager";
+import { ObjectId } from 'mongodb';
 
 const DB: any = {
     comments: CommentsDb,
@@ -39,8 +40,30 @@ class General implements IGeneral {
                       }
                     },
                   ]);
+            } else if (this.type === Types.COMMENT) {
+                items = await this.db.aggregate([
+                    {
+                        $match: {
+                            postId: new ObjectId(query.postId)
+                        },
+                    },
+                    {
+                        $lookup: {
+                            from: 'users',
+                            localField: 'authorId',
+                            foreignField: '_id',
+                            as: 'user',
+                        }
+                    },
+                    {
+                        $project: {
+                            authorId: 0,
+                            postId: 0,
+                        }
+                    }
+                ]);
             } else {
-                items = await this.db.find({ query });
+                items = await this.db.find(query);
             }
 
             return items;
@@ -49,11 +72,33 @@ class General implements IGeneral {
         }
     }
 
-    async getItem(id: string) {
+    async getItem(id: string | any) {
         try {
-            const item = await this.db.findById(id);
-    
-            return item;
+            let item;
+            if (this.type !== Types.POST) {
+                item = await this.db.findById(id);
+            } else {
+                item = await this.db.aggregate([
+                    {
+                        $match: {
+                            _id: new ObjectId(id),
+                        }
+                    },
+                    {
+                      $lookup: {
+                        from: 'users',
+                        localField: 'authorId',
+                        foreignField: '_id',
+                        as: 'detail',
+                      }
+                    },
+                    {
+                        $limit: 1,
+                    },
+                  ])
+            }
+
+            return item[0];
         } catch(err) {
             throw new Error(`Error attemping to find item by id in DB: ${err}`);
         }

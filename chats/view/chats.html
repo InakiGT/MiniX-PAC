@@ -12,24 +12,24 @@
 </head>
 <body>
     <header>
-        <nav class="navigator" >
+      <nav class="navigator" >
+        <div>
+            <a class="logo" href="http://127.0.0.1:5500/posts/view/posts.html">
+                <h1>Mini<span>-X</span></h1>
+            </a>
+            <input type="text" placeholder="Buscar" />
+        </div>
+  
+        <div>
+          <div class="messageIcon">
             <div>
-                <a class="logo" href="/">
-                    <h1>Mini<span>-X</span></h1>
-                </a>
-                <input type="text" placeholder="Buscar" />
+              <a href="http://127.0.0.1:5500/chats/view/chats.html"><img src='https://cdn.icon-icons.com/icons2/1673/PNG/512/messagesquareoutline_110780.png' /></a>
             </div>
-      
-            <div>
-              <div class="messageIcon">
-                <div>
-                  <a href="/chats"><img src='https://cdn.icon-icons.com/icons2/1673/PNG/512/messagesquareoutline_110780.png' /></a>
-                </div>
-                <span><p>1</p></span>
-              </div>
-              <a href="#"><img src='https://cdn1.iconfinder.com/data/icons/halloween-2330/512/50-Halloween_Icons_49-1024.png' /></a>
-            </div>
-        </nav>  
+            <span><p>1</p></span>
+          </div>
+          <a id="userNavigator" href="http://127.0.0.1:5500/users/view/user.html?userId="><img id="navPhoto" src='https://cdn1.iconfinder.com/data/icons/halloween-2330/512/50-Halloween_Icons_49-1024.png' /></a>
+        </div>
+    </nav>  
     </header>
 
     <div class="chatsMainContent">
@@ -55,32 +55,23 @@
             <input
               type='text' 
               placeholder='Buscar mensajes directos' 
+              id="searcher"
             />
           </div>
   
   
-          <div>
-            <!-- <For each="s" fallback='No hay mensajes'>
-              {(chat, index) => (
-                <ChatCard
-                  chat="t"
-                  setSelected="d"
-                />
-              )}
-            </For> -->
+          <div id="chats">
           </div>
         </div>
 
-        <div class="chatContainer">
-          <!-- {
-            selected() ? (
-              <SelectChat />
-            ) : (
-              <Chat />
-            )
-          } -->
+        <div id="currentChat" class="chatContainer">
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../public/js/api.js" ></script>
+    <script src="../../public/js/token.js" ></script>
+    <script src="../../public/js/header.js" ></script>
+    <script src="./chats.js"></script>
+    <script src="./searcher.js"></script>
 </body>
 </html>

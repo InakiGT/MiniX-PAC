@@ -49,46 +49,12 @@
         </div>
   
         <div class="mainContainer">
-          <div>
-            <ul class="mainNavigator" >
-                <li>
-                    <p>Para ti</p>
-                </li>
-                <li>
-                    <p>Siguiendo</p>
-                </li>
-            </ul>
-          </div>
+
           <div class="scrollable" >
-              <div class="createPost" >
-                  <div class="inputGrid" >
-                    <div>
-                      <img id="userphoto"src="https://static-00.iconduck.com/assets.00/profile-default-icon-512x511-v4sw4m29.png"></img>
-                    </div>
-                    <textarea 
-                      placeholder="¿Qué hay de nuevo?"
-                      id="create-content"
-                    ></textarea>
-                  </div>
-                  <span class="count" id="count"></span>
-                  <div class="buttonGrid">
-                    <label for="img">
-                      <img src="https://cdn-icons-png.flaticon.com/128/2907/2907776.png" />
-                    </label>
-                    <input
-                    id="img"
-                    type="file" 
-                    style="display: none"
-                    />
-                    <div>
-                      <button class="blackButton" id="create-button">Post</button>
-                    </div>
-                  </div>
+              <div id="specific-post">
               </div>
-
-              <div id="posts">
+              <div id="comments">
               </div>
-
             </div>
         </div>
   
@@ -102,8 +68,7 @@
     <script src="../../public/js/api.js" ></script>
     <script src="../../public/js/token.js" ></script>
     <script src="../../public/js/header.js" ></script>
-    <script src="./posts.js"></script>
-    <script src="./createPost.js"></script>
+    <script src="./post.js"></script>
     <script src="./trends.js"></script>
 </body>
 </html>

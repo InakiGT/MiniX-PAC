@@ -8,8 +8,8 @@ class UserManager {
         this.proxy = new UserProxy();
     }
 
-    async getUsers() {
-        return await this.proxy.getUsers();
+    async getUsers(query: any) {
+        return await this.proxy.getUsers(query);
     }
 
     async getUser(id: string) {

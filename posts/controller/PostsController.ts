@@ -15,7 +15,27 @@ class PostsController {
 
     private initializeRouter(): void {
         this.router.get('/', this.getPosts.bind(this));
+        this.router.get('/getOne/:id', this.getPost.bind(this));
+        this.router.get('/trends', this.getTrends.bind(this));
         this.router.post('/', passport.authenticate('jwt', { session: false }), this.createPost.bind(this));
+    }
+
+    private async getPost(req: Request, res: Response) {
+        try {
+            const id = req.params.id;
+            const post = await this.manager.getPost(id);
+
+            console.log(id)
+
+            res.status(200).json({
+                msg: 'OK',
+                data: post,
+            });
+        } catch(err) {
+            res.status(500).json({
+                msg: 'Internal Server Error',
+            });
+        }
     }
 
     private async getPosts(req: Request, res: Response) {
@@ -26,6 +46,21 @@ class PostsController {
             res.status(200).json({
                 msg: 'OK',
                 data: posts,
+            });
+        } catch(err) {
+            res.status(500).json({
+                msg: 'Internal Server Error',
+            });
+        }
+    }
+
+    private async getTrends(_: Request, res: Response) {
+        try {
+            const data = await this.manager.aggregate();
+    
+            res.status(200).json({
+                msg: 'OK',
+                data,
             });
         } catch(err) {
             res.status(500).json({

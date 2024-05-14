@@ -19,8 +19,10 @@ class UserController {
         this.router.put('/:id', passport.authenticate('jwt', { session: false }), this.updateUser.bind(this));
     }
 
-    private async getUsers(_: Request, res: Response) {
-        const users = await this.manager.getUsers();
+    private async getUsers(req: Request, res: Response) {
+        let { query } = req;
+
+        const users = await this.manager.getUsers(query);
         
         res.json({
             msg: 'OK',
@@ -48,7 +50,7 @@ class UserController {
         try {
             const { id } = req.params;
             const { sub } = req.user as any;
-
+            console.log(sub)
             await this.manager.deleteUser(id, sub);
 
             res.status(200).json({

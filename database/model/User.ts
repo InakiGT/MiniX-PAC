@@ -2,11 +2,14 @@ import bcrypt from 'bcrypt';
 
 import IUser from "./IUser";
 import UserDB from '../../users/model/User';
+import PostsDB from '../../posts/model/Post';
 
 class User implements IUser {
-    async getUsers() {
+    async getUsers(query: any) {
         try {
-            const users = await UserDB.find();
+            const users = await UserDB.find({
+                username: { $regex: query.username, $options: 'i' }
+            });
 
             return users;
         } catch(err) {
@@ -56,6 +59,7 @@ class User implements IUser {
             } 
             
             await UserDB.deleteOne({ _id: id });
+            await PostsDB.deleteMany({ authorId: id });
 
             return true;
         } catch(err) {

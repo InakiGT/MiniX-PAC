@@ -12,32 +12,15 @@
 </head>
 <body>
     <div>
-        <div class="bgRed halfWidth textWhite">
-            <div class="paymentDesc">
-                <a href="../../posts/view/posts.html">
-                    <img class="backArrow" src="https://www.svgrepo.com/show/390866/back.svg" />
-                </a>
-                <div>
-                    <p class="leyend">Suscríbete a Mini-X Premium</p>
-                    <p class="mainPrice">MXN 100.00 <span>por año</span></p>
-                </div>
-
-                <div>
-                    <div class="priceDesc">
-                        <p>Mini-X Premium</p>
-                        <p>MXN 100.00</p>
-                    </div>
-                    <hr />
-                    <div class="priceDesc">
-                        <p>Total adeudado hoy</p>
-                        <p>MXN 100.00</p>
-                    </div>
-                </div>
+        <div class="bgRed bgGray halfWidth textWhite">
+            <div class="paypalLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png">
+                
             </div>
         </div>
         <div class="bgWhite halfWidth">
             <form class="paymentForm" id="paymentForm">
-                <p>Pago con tarjeta</p>
+                <p>Pago con paypal</p>
 
                 <div>
                     <label>Correo electrónico</label>
@@ -45,17 +28,8 @@
                 </div>
 
                 <div>
-                    <label for="">Información de tarjeta</label>
-                    <div>
-                        <input id="number" class="cardInputMid" type="text" placeholder="1234 4567 1234 4567" />
-                        <input id="date" class="cardInputLeft" type="text" placeholder="MM/AA" />
-                        <input id="cvc" class="cardInputRight" type="text" placeholder="CVC" />
-                    </div>
-                </div>
-
-                <div>
-                    <label for="name">Nombre del titular</label>
-                    <input id="name" type="text" placeholder="Nombre titular" />
+                    <label>Contraseña</label>
+                    <input id="password" type="password" />
                 </div>
 
                 <div>
@@ -68,7 +42,7 @@
                 <div class="btnContainer">
                     <button type="submit" class="blackButton">Suscribirse</button>
                 </div>
-                <a class="paypalLink" href="./paypal.html">Hacer el pago con paypal</a>
+                <a class="paypalLink" href="./payment.html">Hacer el pago con tarjeta</a>
 
                 <p class="caption">Si confirmas tu suscripción, permitirás que Mini-X efectúe cargos de futuros pagos conforme a las condiciones estipuladas. Siempre puedes cancelar tu suscripción.</p>
             </form>
@@ -76,7 +50,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="../../public/js/api.js" ></script>
         <script src="../../public/js/token.js" ></script>
-        <script src="./payment.js"></script>
+        <script src="./paypal.js"></script>
     </div>
 </body>
 </html>

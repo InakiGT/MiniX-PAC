@@ -9,7 +9,13 @@ class Api {
     async Get(id) {
         try {
             this.url = id ? this.baseUrl + `/${id}` : this.baseUrl;
-            const response = await axios.get(this.url);
+            const token = localStorage.getItem('token');
+
+            const response = await axios.get(this.url, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                } 
+            });
 
             return response;
         } catch(err) {
@@ -37,7 +43,13 @@ class Api {
     async Put(id, data) {
         try {
             this.url = this.baseUrl + `/${id}`;
-            const response = await axios.put(this.url, data);
+            const token = localStorage.getItem('token');
+
+            const response = await axios.put(this.url, data, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                } 
+            });
 
             return response;
         } catch(err) {
@@ -48,10 +60,14 @@ class Api {
     async Delete(id, author) {
         try {
             this.url = this.baseUrl + `/${id}`;
-            const data = {
-                author,
-            }
-            const response = await axios.delete(this.url, { data });
+            const token = localStorage.getItem('token');
+
+
+            const response = await axios.delete(this.url, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                } 
+            });
 
             return response;
         } catch(err) {

@@ -54,6 +54,10 @@ a {
   background-color: #FFFFFF;
 }
 
+.bgGray {
+  background-color: #F6F7F8;
+}
+
 .textWhite {
   color: #FFF;
 }
@@ -465,6 +469,10 @@ a {
   border: 1px solid var(--soft-gray);
 }
 
+.tweet:hover {
+  cursor: pointer;
+}
+
 .tweetAuthor {
   width: 100%;
   display: flex;
@@ -835,4 +843,45 @@ a {
 
 .displayNone {
   display: none;
+}
+
+.count {
+  font-size: .7rem;
+  margin-left: 4rem;
+  color: #787171;
+}
+
+.paypalLink {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #003087;
+}
+
+.paypalLogo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.paypalLogo img {
+  width: 10rem;
+}
+
+.delete {
+  color: #FF1616;
+}
+
+.okCard {
+  background-color: rgb(138, 185, 67);
+  padding: .8rem 2rem;
+  margin-bottom: 1rem;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.clickable:hover {
+  cursor: pointer;
 }

@@ -10,8 +10,8 @@ class UserProxy implements IUser {
         this.user = new User();
     }
 
-    async getUsers() {
-        const users = await this.user.getUsers();
+    async getUsers(query: any) {
+        const users = await this.user.getUsers(query);
 
         return users;
     }

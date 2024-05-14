@@ -18,7 +18,9 @@ class GeneralProxy implements IGeneral {
     }
 
     async getItem(id: string) {
+        const response = await this.item.getItem(id);
         
+        return response;
     }
 
     async createItem(data: any) {

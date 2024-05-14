@@ -1,6 +1,6 @@
 
 interface IUser {
-    getUsers(): any;
+    getUsers(query: any): any;
     getUser(id: string): any;
     getUserByEmail(email: string): any;
     createUser(data: any): any;
