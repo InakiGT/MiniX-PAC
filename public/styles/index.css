@@ -885,3 +885,7 @@ a {
 .clickable:hover {
   cursor: pointer;
 }
+
+.noHover:hover {
+  cursor: auto;
+}

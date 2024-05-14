@@ -27,6 +27,13 @@ const getComments = async (id) => {
     return comments.length;
 }
 
+const getReaction = async (id) => {
+    const api = new Api('http://localhost:3000/reactions');
+    const { data: { data: comments } } = await api.Get(id);
+
+    return comments.length;
+}
+
 const getPosts = async () => {
     const response = await api.Get();
     const { data: { data: posts } } = response;
@@ -44,6 +51,7 @@ const getPosts = async () => {
         });
 
         const comment = await getComments(post._id);
+        const reaction = await getReaction(post._id);
         const img = post.img ? `<img src="${post.img}" alt="${post.authorId.username}" />` : '';
         const photo = post.detail[0].photo ? post.detail[0].photo : 'https://static-00.iconduck.com/assets.00/profile-default-icon-512x511-v4sw4m29.png';
 
@@ -74,7 +82,7 @@ const getPosts = async () => {
                         src='https://www.svgrepo.com/show/335228/heart-solid.svg'
                         class="heart"
                     />
-                    <p>200k</p>
+                    <p>${ reaction }</p>
                 </div>
             </div>
         `;

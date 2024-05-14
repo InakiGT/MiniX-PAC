@@ -18,7 +18,6 @@ class RegisterController {
     private async createUser(req: Request, res: Response) {
         try {
             const data = req.body;
-            console.log(data);
             const response = await this.manager.createUser(data);
 
             res.status(201).json({

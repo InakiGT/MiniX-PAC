@@ -131,7 +131,24 @@ class General implements IGeneral {
     }
 
     async deleteItem(id: string, sub: string) {
-        
+        try {
+            const item = await this.db.findOne({ authorId: sub, postId: id });
+  
+            if (sub === item.authorId.toString()) {
+                if ( this.type === Types.REACTION ) {
+                    await this.db.deleteOne({ authorId: sub, postId: id });
+                } else {
+                    await this.db.deleteOne({ _id: id });
+                }
+                
+                return true;
+            } else {
+                throw new Error('Unauthorized');
+            }
+        } catch(err) {
+            console.error(`Error attempting to update an item in DB: ${err}`);
+            throw new Error(`Error attempting to update an item in DB: ${err}`);
+        }
     }
 
     async updateItem(id: string, data: any) {

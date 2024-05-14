@@ -25,8 +25,6 @@ class PostsController {
             const id = req.params.id;
             const post = await this.manager.getPost(id);
 
-            console.log(id)
-
             res.status(200).json({
                 msg: 'OK',
                 data: post,

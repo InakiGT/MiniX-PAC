@@ -1,5 +1,3 @@
-import bcrypt from 'bcrypt';
-
 import IGeneral from "./IGeneral";
 import General from "./General";
 import { Types } from './GeneralTypes';
@@ -30,7 +28,7 @@ class GeneralProxy implements IGeneral {
     }
 
     async deleteItem(id: string, sub: string) {
-        
+        return await this.item.deleteItem(id, sub);
     }
 
     async updateItem(id: string, data: any) {

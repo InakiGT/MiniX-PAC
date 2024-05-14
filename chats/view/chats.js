@@ -72,7 +72,7 @@ const sendMessage = async (e, receiver, container) => {
 
         const api = new Api('http://localhost:3000/chats');
         const response = await api.Post(data);
-        console.log(response)
+
         if (response.status === 201) {
             container.innerHTML += `
                 <div class="rightMessage">

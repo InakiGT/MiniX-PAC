@@ -50,7 +50,6 @@ class UserController {
         try {
             const { id } = req.params;
             const { sub } = req.user as any;
-            console.log(sub)
             await this.manager.deleteUser(id, sub);
 
             res.status(200).json({
