@@ -1,4 +1,6 @@
 const userPhoto = document.getElementById('userphoto');
+
+
 const api = new Api('http://localhost:3000/posts');
 
 const postsContainer = document.getElementById('posts');
@@ -18,7 +20,6 @@ const getUserPhoto = async () => {
 const selectPost = (id) => {
     window.location = `http://127.0.0.1:5500/posts/view/post.html?id=${ id }`;
 }
-
 
 const getComments = async (id) => {
     const api = new Api('http://localhost:3000/comments');

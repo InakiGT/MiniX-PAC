@@ -5,7 +5,7 @@ interface ILike extends Document {
 }
 
 export const likeSchema = new Schema({
-    authorId: { type: Schema.Types.ObjectId, required: true, unique: true },
+    authorId: { type: Schema.Types.ObjectId, required: true, unique: false },
     postId: { type: Schema.Types.ObjectId, required: true },
 });
 

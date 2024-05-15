@@ -74,4 +74,23 @@ class Api {
             console.log('Error al hacer la solicitud');
         }
     }
+
+    async SendData(data) {
+        try {
+            this.url = this.baseUrl;
+            const response = await axios.post(this.url, data, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
+
+            return {
+                status: 'OK',
+                response,
+            }
+        } catch(err) {
+            console.error(err);
+            return {
+                error: 'Error en la consulta',
+            }
+        }
+    }
 }
